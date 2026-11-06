@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.DS_Store
+# 完整数据与训练产物不入库
+data/*
+!data/sample/
+output/
+*.pth

@@ -1,0 +1,8 @@
+# 训练与模型转换
+torch>=1.13
+torchvision>=0.14
+numpy
+pillow
+onnx
+onnxruntime
+# 部署端另需 ROS1（rospy、cv_bridge）与 opencv-python

@@ -1,0 +1,18 @@
+<!-- yeahbot_inference.launch -->
+<!-- ROS1 启动文件: 加载 ONNX 模型并运行推理节点 -->
+<launch>
+    <node name="yeahbot_inference" pkg="yeahbot_nav" type="inference_ros_node.py" output="screen">
+        <!-- 模型文件路径 (修改为你的实际路径) -->
+        <param name="model_path" value="$(find yeahbot_nav)/models/yeahbot_model.onnx"/>
+        <param name="meta_path"  value="$(find yeahbot_nav)/models/model_meta.json"/>
+
+        <!-- ROS 话题 (根据你的小车实际话题修改) -->
+        <param name="image_topic" value="/camera/image_raw"/>
+        <param name="cmd_topic"   value="/cmd_vel"/>
+
+        <!-- 推理参数 -->
+        <param name="confidence_threshold" value="0.5"/>
+        <!-- 连续检测到"停止"多少帧才真正停车, 防止误判 -->
+        <param name="stop_count_threshold" value="15"/>
+    </node>
+</launch>
